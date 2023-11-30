@@ -1,6 +1,5 @@
 import "./Header.css";
 import wtwrLogo from "../../images/wtwrLogo.svg";
-import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
@@ -26,17 +25,9 @@ const Header = ({ onClick, loggedIn, onClickSignup, onClickLogin }) => {
         <div className="header__date">{currentDate}</div>
       </div>
       <div className="header__avatar-logo">
-        <ToggleSwitch />
         {loggedIn ? (
           <>
             <div>
-              <button
-                className="header__add-button"
-                type="text"
-                onClick={onClick}
-              >
-                + New Clothes
-              </button>
             </div>
             <Link to="/profile">{currentUser?.name}</Link>
             <div>

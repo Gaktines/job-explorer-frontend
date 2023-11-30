@@ -1,0 +1,75 @@
+.sideBar {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding-left: 23px;
+  max-width: 120px;
+}
+
+.sideBar__avatar {
+  width: 56px;
+  height: 56px;
+}
+
+.sideBar__name {
+  color: #000;
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  min-width: 135px;
+}
+
+.sideBar__edit-button {
+  color: #000;
+  border: none;
+  background-color: white;
+  font-family: Cabinet Grotesk;
+  min-width: 135px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.sideBar__edit-button:hover {
+  cursor: pointer;
+}
+
+.sideBar__logout-button {
+  color: #000;
+  border: none;
+  background-color: white;
+  font-family: Cabinet Grotesk;
+  min-width: 135px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.sideBar__logout-button:hover {
+  cursor: pointer;
+}
+
+.sideBar__buttons {
+  display: flex;
+  padding: 8px;
+  position: absolute;
+  left: 23px;
+  top: 150px;
+  flex-direction: column;
+}
+.avatar__placeholder {
+  border-radius: 25%;
+  background-color: white;
+  font-family: Cabinet Grotesk;
+
+}
+
+.sideBar__avatar {
+  max-width: 40px;
+  max-height: 40px;
+  border-radius: 50%;
+}
