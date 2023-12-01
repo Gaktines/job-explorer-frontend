@@ -3,7 +3,13 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import React, { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  useNavigate,
+  BrowserRouter,
+  HashRouter,
+} from "react-router-dom";
 import Profile from "../Profile/Profile";
 import {
   fetchItems,
@@ -19,13 +25,10 @@ import { AppContext } from "../../contexts/AppContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
-
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-  
- 
-  
+
   const [loggedIn, setLoggedIn] = useState(false);
   const [userData, setUserData] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
@@ -38,7 +41,7 @@ function App() {
 
     setSelectedCard(card);
   };
-  
+
   const handleActiveCreateModal = () => {
     setActiveModal("create");
   };
@@ -65,7 +68,6 @@ function App() {
     history.push("/");
   };
 
-
   const handleRegistration = (email, password, name, avatar) => {
     register(email, password, name, avatar)
       .then((res) => {
@@ -73,15 +75,13 @@ function App() {
         setLoggedIn(true);
         setCurrentUser(res.data);
         handleCloseModal();
-        
+
         history.push("/profile");
       })
       .catch((error) => {
         console.error(error);
       })
-      .finally(() => 
-      setLoggedIn(false));
-
+      .finally(() => setLoggedIn(false));
   };
 
   const handleLogin = (email, password) => {
@@ -99,7 +99,7 @@ function App() {
               setLoggedIn(true);
               setCurrentUser(res.data);
               handleCloseModal();
-              
+
               history.push("/profile");
             })
             .catch((error) => {
@@ -140,8 +140,7 @@ function App() {
     };
   }, [activeModal]); // watch activeModal here
 
-
- /* useEffect(() => {
+  /* useEffect(() => {
     getWeatherForecast()
       .then((data) => {
         
@@ -168,8 +167,9 @@ function App() {
   }, [loggedIn, history]);
 
   return (
-      <CurrentUserContext.Provider value={currentUser}>
-        <AppContext.Provider value={appContextValue}>
+    <CurrentUserContext.Provider value={currentUser}>
+      <AppContext.Provider value={appContextValue}>
+        
           <div>
             <Header
               onClick={handleActiveCreateModal}
@@ -179,10 +179,7 @@ function App() {
             />
             <Routes>
               <Route exact path="/">
-                <Main
-                  onSelectCard={handleItemCard}
-                  loggedIn={loggedIn}
-                />
+                <Main onSelectCard={handleItemCard} loggedIn={loggedIn} />
               </Route>
               <ProtectedRoute path="/profile">
                 <Profile
@@ -196,6 +193,7 @@ function App() {
               </ProtectedRoute>
             </Routes>
             <Footer />
+
             {activeModal === "signup" && (
               <RegisterModal
                 handleCloseModal={handleCloseModal}
@@ -224,8 +222,9 @@ function App() {
               />
             )}
           </div>
-        </AppContext.Provider>
-      </CurrentUserContext.Provider>
+        
+      </AppContext.Provider>
+    </CurrentUserContext.Provider>
   );
 }
 
