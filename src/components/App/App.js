@@ -3,22 +3,9 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import React, { useState, useEffect } from "react";
-import {
-  Routes,
-  Route,
-  useNavigate,
-  BrowserRouter,
-  HashRouter,
-} from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Profile from "../Profile/Profile";
-import {
-  fetchItems,
-  loadItems,
-  removeItems,
-  editUserProfile,
-} from "../../utils/Api";
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-import { register, signin, checkToken } from "../../utils/auth";
+import { fetchJobs, editUserProfile } from "../../utils/Api";
 import RegisterModal from "../../components/RegisterModal/RegisterModal";
 import LoginModal from "../../components/LoginModal/LoginModal";
 import { AppContext } from "../../contexts/AppContext";
@@ -64,51 +51,7 @@ function App() {
 
   const handleLogout = () => {
     setLoggedIn(false);
-    localStorage.removeItem("jwt");
     history.push("/");
-  };
-
-  const handleRegistration = (email, password, name, avatar) => {
-    register(email, password, name, avatar)
-      .then((res) => {
-        console.log(res);
-        setLoggedIn(true);
-        setCurrentUser(res.data);
-        handleCloseModal();
-
-        history.push("/profile");
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-      .finally(() => setLoggedIn(false));
-  };
-
-  const handleLogin = (email, password) => {
-    signin(email, password)
-      .then((response) => {
-        return response;
-      })
-
-      .then((data) => {
-        if (data.token) {
-          localStorage.setItem("jwt", data.token);
-
-          checkToken(data.token)
-            .then((res) => {
-              setLoggedIn(true);
-              setCurrentUser(res.data);
-              handleCloseModal();
-
-              history.push("/profile");
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-        } else {
-          return;
-        }
-      });
   };
 
   const handleUpdate = (data) => {
@@ -150,79 +93,61 @@ function App() {
       });
   }, []);*/
 
-  useEffect(() => {
-    const token = localStorage.getItem("jwt");
-    if (token) {
-      checkToken(token)
-        .then((data) => {
-          setCurrentUser(data.data); // Set the user data in your component state
-          setLoggedIn(true);
-        })
-        .catch(() => console.error);
-    } else {
-      localStorage.removeItem("jwt");
-      setLoggedIn(false);
-      console.log("Token not Found");
-    }
-  }, [loggedIn, history]);
+  useEffect(() => {}, [loggedIn]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <AppContext.Provider value={appContextValue}>
-        
-          <div>
-            <Header
-              onClick={handleActiveCreateModal}
-              onClickLogin={handleLogInModal}
-              onClickSignup={handleSignupModal}
-              loggedIn={loggedIn}
-            />
-            <Routes>
-              <Route exact path="/">
-                <Main onSelectCard={handleItemCard} loggedIn={loggedIn} />
-              </Route>
-              <ProtectedRoute path="/profile">
-                <Profile
-                  onSelectCard={handleItemCard}
-                  handleActiveCreateModal={handleActiveCreateModal}
-                  selectedCard={selectedCard}
-                  handleEditModal={handleEditModal}
-                  handleLogout={handleLogout}
-                  loggedIn={loggedIn}
-                />
-              </ProtectedRoute>
-            </Routes>
-            <Footer />
-
-            {activeModal === "signup" && (
-              <RegisterModal
-                handleCloseModal={handleCloseModal}
-                isOpen={activeModal === "create"}
-                handleRegistration={handleRegistration}
-                setActiveModal={setActiveModal}
-              />
-            )}
-            {activeModal === "login" && (
-              <LoginModal
-                handleCloseModal={handleCloseModal}
-                isOpen={activeModal === "login"}
-                handleLogin={handleLogin}
-                onClickLogin={handleLogInModal}
-                setActiveModal={setActiveModal}
-              />
-            )}
-            {activeModal === "update" && (
-              <EditProfileModal
-                handleCloseModal={handleCloseModal}
-                isOpen={activeModal === "update"}
-                onSubmit={handleUpdate}
+        <div>
+          <Header
+            onClick={handleActiveCreateModal}
+            onClickLogin={handleLogInModal}
+            onClickSignup={handleSignupModal}
+            loggedIn={loggedIn}
+          />
+          <Routes>
+            <Route exact path="/">
+              <Main onSelectCard={handleItemCard} loggedIn={loggedIn} />
+            </Route>
+            <Route path="/profile">
+              <Profile
+                onSelectCard={handleItemCard}
+                handleActiveCreateModal={handleActiveCreateModal}
+                selectedCard={selectedCard}
                 handleEditModal={handleEditModal}
-                setActiveModal={setActiveModal}
-                currentUser={currentUser}
+                handleLogout={handleLogout}
+                loggedIn={loggedIn}
               />
-            )}
-          </div>
-        
+            </Route>
+          </Routes>
+          <Footer />
+
+          {activeModal === "signup" && (
+            <RegisterModal
+              handleCloseModal={handleCloseModal}
+              isOpen={activeModal === "create"}
+              setActiveModal={setActiveModal}
+            />
+          )}
+          {activeModal === "login" && (
+            <LoginModal
+              handleCloseModal={handleCloseModal}
+              isOpen={activeModal === "login"}
+              onClickLogin={handleLogInModal}
+              setActiveModal={setActiveModal}
+            />
+          )}
+          {activeModal === "update" && (
+            <EditProfileModal
+              handleCloseModal={handleCloseModal}
+              isOpen={activeModal === "update"}
+              onSubmit={handleUpdate}
+              handleEditModal={handleEditModal}
+              setActiveModal={setActiveModal}
+              currentUser={currentUser}
+            />
+          )}
+        </div>
       </AppContext.Provider>
     </CurrentUserContext.Provider>
   );

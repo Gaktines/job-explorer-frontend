@@ -1,20 +1,17 @@
-import "./Main.css"
-import React, { useMemo, useContext } from "react";
+import "./Main.css";
+import React from "react";
+import { Route } from "react-router-dom";
 
-
-function Main({}
-) {
-  
-
+function Main({}) {
   return (
-    <main className="main">
-      <section className="card__section">
-        bob
-        <div className="">
-        
-        </div>
-      </section>
-    </main>
+    <Route>
+      <main className="main">
+        <section className="card__section">
+          bob
+          <div className=""></div>
+        </section>
+      </main>
+    </Route>
   );
 }
 
