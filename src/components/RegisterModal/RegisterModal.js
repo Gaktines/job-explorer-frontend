@@ -43,7 +43,7 @@ const RegisterModal = ({
     >
       <h2 className="modal_header">Sign up</h2>
       <input
-        className="modal__input-name"
+        className="modal__input-username"
         type="text"
         name="name"
         placeholder="Username"
