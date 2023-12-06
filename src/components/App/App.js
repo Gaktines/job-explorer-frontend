@@ -3,7 +3,7 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import React, { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import { fetchJobs, editUserProfile } from "../../utils/Api";
 import RegisterModal from "../../components/RegisterModal/RegisterModal";
@@ -20,7 +20,7 @@ function App() {
   const [userData, setUserData] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const appContextValue = { state: { loggedIn, userData } };
-  const history = useNavigate();
+  const history = useHistory();
   const [isLoading, setIsLoading] = React.useState(false);
 
   const handleItemCard = (card) => {
@@ -105,7 +105,7 @@ function App() {
             onClickSignup={handleSignupModal}
             loggedIn={loggedIn}
           />
-          <Routes>
+          <Switch>
             <Route exact path="/">
               <Main onSelectCard={handleItemCard} loggedIn={loggedIn} />
             </Route>
@@ -119,7 +119,7 @@ function App() {
                 loggedIn={loggedIn}
               />
             </Route>
-          </Routes>
+          </Switch>
           <Footer />
 
           {activeModal === "signup" && (

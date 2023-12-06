@@ -31,7 +31,7 @@ const LoginModal = ({
     <ModalWithForm
       isOpen={isOpen}
       onSubmit={handleSubmit}
-      buttonText={isLoading ? "Logging In..." : "Login"}
+      buttonText={isLoading ? "Logging In..." : "Sign in"}
       onClose={handleCloseModal}
     >
       <h2>Log in</h2>
@@ -69,7 +69,7 @@ const LoginModal = ({
           name="button"
           onClick={onClickSignup}
         >
-          or Register
+          or Sign up
         </button>
       </div>
     </ModalWithForm>

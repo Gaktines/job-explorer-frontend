@@ -1,5 +1,5 @@
 import "./Header.css";
-import wtwrLogo from "../../images/wtwrLogo.svg";
+import JobSeekerLogo from "../../images/JobSeekerLogo.png";
 import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
@@ -20,9 +20,9 @@ const Header = ({ onClick, loggedIn, onClickSignup, onClickLogin }) => {
     <header className="header">
       <div className="header__logo">
         <Link to="/">
-          <img src={wtwrLogo} alt="logo" />
+          <img src={JobSeekerLogo} alt="logo" />
         </Link>
-        <div className="header__date">{currentDate}</div>
+
       </div>
       <div className="header__avatar-logo">
         {loggedIn ? (
@@ -53,7 +53,7 @@ const Header = ({ onClick, loggedIn, onClickSignup, onClickLogin }) => {
               type="text"
               onClick={onClickLogin}
             >
-              Log In
+              Sign In
             </button>
           </>
         )}
