@@ -4,16 +4,16 @@
 }
 .modal {
   position: fixed;
-  top: 40px;
+  top: 0;
   bottom: 0;
   right: 0;
-  left: 500px;
+  left: 0;
   justify-content: center;
   align-items: center;
   display: flex;
   background-color: rgba(0, 0, 0, 0.5);
   width: 480px;
-  height: 559px;
+  
   flex-shrink: 0;
   border-radius: 30px;
   border: 1px solid #cfcfcf;
@@ -32,7 +32,6 @@
   margin: auto;
   box-sizing: border-box;
   max-width: 480px;
-  width: 100%;
   position: relative;
 }
 
@@ -106,6 +105,8 @@
   border-radius: 100px;
   background: var(--Active-disabled, #8cace5);
   box-shadow: 0px 5px 15px 0px rgba(14, 26, 57, 0.2);
+  bottom: 35px;
+  left: 75px;
 }
 
 .modal__submit-button:hover {
