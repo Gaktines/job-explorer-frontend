@@ -72,6 +72,7 @@
   border-radius: 30px;
   border: 1px solid var(--Text-disabled, #cfcfcf);
   background: #fff;
+  
 }
 
 .modal__input-username {
@@ -139,4 +140,5 @@ height: 60px;
 
 .modal__button-container {
   display: flex;
+  margin-top: 100px;
 }
