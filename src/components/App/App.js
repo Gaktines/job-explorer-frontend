@@ -15,7 +15,7 @@ import EditProfileModal from "../EditProfileModal/EditProfileModal";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-
+const [jobItems, setJobItems] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
   const [userData, setUserData] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
@@ -83,17 +83,12 @@ function App() {
     };
   }, [activeModal]); // watch activeModal here
 
-  /* useEffect(() => {
-    getWeatherForecast()
-      .then((data) => {
-        
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);*/
-
-  useEffect(() => {}, [loggedIn]);
+useEffect(() => {
+fetchJobs()
+.then((data) => {
+  console.log(data);
+})
+}, [loggedIn]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

@@ -4,6 +4,8 @@ import JobCard from "../JobCard/JobCard";
 
 function Main({ onSelectCard, jobItems, setSelectedCard, loggedIn }) {
   const sortedCards = jobItems?.filter((item) => {
+    console.log(jobItems);
+    console.log(item);
     return item;
 });
 
@@ -12,7 +14,17 @@ function Main({ onSelectCard, jobItems, setSelectedCard, loggedIn }) {
       <section className="card__section">
         Today is {Date}
         <div className="card__items">
-          {sortedCards.map((x) => (
+        
+        </div>
+      </section>
+    </main>
+  );
+}
+
+export default Main;
+
+
+/* {sortedCards.map((x) => (
             <JobCard
               item={x}
               key={x._id}
@@ -22,11 +34,4 @@ function Main({ onSelectCard, jobItems, setSelectedCard, loggedIn }) {
               }}
               loggedIn={loggedIn}
             />
-          ))}
-        </div>
-      </section>
-    </main>
-  );
-}
-
-export default Main;
+          ))}*/

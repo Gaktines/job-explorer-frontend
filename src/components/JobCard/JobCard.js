@@ -1,37 +1,30 @@
-import React, { useContext } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import React/*, { useContext } */from "react";
+//import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./JobCard.css";
 
-const JobCard = ({
-  item,
-  onSelectCard,
-  selectedCard,
-  onCardLike,
-  loggedIn,
-}) => {
-  const currentUser = useContext(CurrentUserContext);
+const JobCard = ({ data, onSelectCard, loggedIn }) => {
+  //const currentUser = useContext(CurrentUserContext);
 
   return (
     <div className="card">
       {loggedIn ? (
         <>
           <div className="card__title-block">
-            <div className="card__title">{item.name}</div>
+            <div className="card__title">{data.companyName}</div>
           </div>
         </>
       ) : (
         <>
           <div className="card__title-block">
-            <div className="card__title">{item.name}</div>
+            <div className="card__title">{data.companyName}</div>
           </div>
         </>
       )}
-      <img
-        src={item?.imageUrl || item?.link}
-        className="card__image"
-        alt={item.name}
-        onClick={() => onSelectCard(item)}
-      />
+      <div className="card_job">{data.jobName}</div>
+      <div className="card__date">{Date}</div>
+      <a href={data.link} onClick={onSelectCard}>
+        Job Link
+      </a>
     </div>
   );
 };

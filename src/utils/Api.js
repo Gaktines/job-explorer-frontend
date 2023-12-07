@@ -1,4 +1,4 @@
-const baseUrl = "https://www.themuse.com/api/public/jobs";
+const baseUrl = "https://www.themuse.com/api/public";
 
 
 
@@ -7,7 +7,7 @@ export const checkResponse = (res) => {
 };
 
 export const fetchJobs = () => {
-  const getJobs = fetch(`${baseUrl}?page=13`, {
+  const getJobs = fetch(`${baseUrl}/jobs?page=13`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
