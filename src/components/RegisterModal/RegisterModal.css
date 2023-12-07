@@ -59,6 +59,7 @@
   border-radius: 30px;
   border: 1px solid var(--Text-disabled, #cfcfcf);
   background: #fff;
+  
 }
 
 .modal__password {
@@ -73,6 +74,7 @@
   border: 1px solid var(--Text-disabled, #cfcfcf);
   background: #fff;
   
+  
 }
 
 .modal__input-username {
@@ -85,9 +87,10 @@
   border-radius: 30px;
   border: 1px solid var(--Text-disabled, #cfcfcf);
   background: #fff;
+  width: 100%;
 }
 
-.modal__input {
+.modal__input-link {
   color: rgba(0, 0, 0, 0.5);
   font-family: Cabinet Grotesk;
   font-size: 16px;
@@ -95,7 +98,9 @@
   font-weight: 700;
   line-height: 20px;
 height: 60px;
-  border-bottom: 1px solid;
+border: 1px solid var(--Text-disabled, #cfcfcf);
+background: #fff;
+
 }
 
 .modal__submit-button {

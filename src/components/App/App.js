@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
+import About from "../About/About";
 import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import Profile from "../Profile/Profile";
@@ -113,6 +114,9 @@ fetchJobs()
                 handleLogout={handleLogout}
                 loggedIn={loggedIn}
               />
+            </Route>
+            <Route path="/about">
+              <About />
             </Route>
           </Switch>
           <Footer />

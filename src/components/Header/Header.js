@@ -12,7 +12,6 @@ const Header = ({ onClick, loggedIn, onClickSignup, onClickLogin }) => {
   const currentUser = useContext(CurrentUserContext);
   const avatar = currentUser ? currentUser.avatar : undefined;
   const showAvatar = avatar !== "" ? true : false;
- 
 
   const name = currentUser ? currentUser.name : "";
 
@@ -22,13 +21,16 @@ const Header = ({ onClick, loggedIn, onClickSignup, onClickLogin }) => {
         <Link to="/">
           <img src={JobSeekerLogo} alt="logo" />
         </Link>
-
       </div>
+      <Link to="/" className="header__home-link">
+        Home
+      </Link>
+      <Link to="/about" className="header__about-link">
+        About
+      </Link>
       <div className="header__avatar-logo">
         {loggedIn ? (
           <>
-            <div>
-            </div>
             <Link to="/profile">{currentUser?.name}</Link>
             <div>
               {showAvatar ? (
