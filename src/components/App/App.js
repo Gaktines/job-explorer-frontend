@@ -16,7 +16,7 @@ import EditProfileModal from "../EditProfileModal/EditProfileModal";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-const [jobItems, setJobItems] = useState({});
+  const [jobItems, setJobItems] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
   const [userData, setUserData] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
@@ -84,12 +84,23 @@ const [jobItems, setJobItems] = useState({});
     };
   }, [activeModal]); // watch activeModal here
 
-useEffect(() => {
-fetchJobs()
-.then((data) => {
-  console.log(data);
-})
-}, [loggedIn]);
+  useEffect(() => {
+    fetchJobs()
+      .then((data) => {
+        console.log(data);
+        const apiData = data.results.map((job) => ({
+          companyName: job.company.name,
+          jobName: job.name,
+          jobLink: job.refs.landing_page,
+          jobPostingDate: job.publication_date,
+        }));
+        setJobItems(apiData);
+        console.log(apiData);
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+  }, [loggedIn]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -116,7 +127,8 @@ fetchJobs()
               />
             </Route>
             <Route path="/about">
-              <About />
+              <About 
+              />
             </Route>
           </Switch>
           <Footer />

@@ -1,7 +1,5 @@
 const baseUrl = "https://www.themuse.com/api/public";
 
-
-
 export const checkResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
@@ -9,9 +7,6 @@ export const checkResponse = (res) => {
 export const fetchJobs = () => {
   const getJobs = fetch(`${baseUrl}/jobs?page=13`, {
     method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
   }).then((res) => checkResponse(res));
   return getJobs;
 };
@@ -27,4 +22,3 @@ export function editUserProfile({ name, avatar }) {
     body: JSON.stringify({ name, avatar }),
   }).then((res) => checkResponse(res));
 }
-
