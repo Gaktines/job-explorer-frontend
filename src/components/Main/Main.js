@@ -14,17 +14,7 @@ function Main({ onSelectCard, jobItems, setSelectedCard, loggedIn }) {
       <section className="card__section">
         Today is {Date}
         <div className="card__items">
-        {sortedCards.map((x) => (
-            <JobCard
-              item={x}
-              key={x._id}
-              onSelectCard={onSelectCard}
-              onClick={() => {
-                setSelectedCard(x);
-              }}
-              loggedIn={loggedIn}
-            />
-          ))}
+        
         </div>
       </section>
     </main>
@@ -34,4 +24,14 @@ function Main({ onSelectCard, jobItems, setSelectedCard, loggedIn }) {
 export default Main;
 
 
-/* */
+/*{sortedCards.map((x) => (
+            <JobCard
+              item={x}
+              key={x._id}
+              onSelectCard={onSelectCard}
+              onClick={() => {
+                setSelectedCard(x);
+              }}
+              loggedIn={loggedIn}
+            />
+          ))} */

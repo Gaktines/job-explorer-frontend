@@ -48,20 +48,7 @@
   position: absolute;
 }
 
-.modal__email {
-  display: flex;
-  height: 60px;
-  padding: 20px 24px;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  border-radius: 30px;
-  border: 1px solid var(--Text-disabled, #cfcfcf);
-  background: #fff;
-  
-}
-
-.modal__password {
+.modal__input {
   display: flex;
   height: 60px;
   padding: 20px 24px;
@@ -73,19 +60,6 @@
   background: #fff;
   
   
-}
-
-.modal__input-username {
-  display: flex;
-  height: 60px;
-  padding: 20px 24px;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  border-radius: 30px;
-  border: 1px solid var(--Text-disabled, #cfcfcf);
-  background: #fff;
- 
 }
 
 .modal__submit-button {

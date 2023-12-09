@@ -3,30 +3,18 @@
   src: "../fonts/CabinetGrotesk-Black.woff";
 }
 
-.modal__password {
-  color: rgba(0, 0, 0, 0.5);
-  font-family: Cabinet Grotesk;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 20px;
-  border: none;
-  width: 100%;
-  border-bottom: 1px solid;
-  padding-top: 20px;
-}
-
-.modal__email {
-  color: rgba(0, 0, 0, 0.5);
-  font-family: Cabinet Grotesk;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 20px;
-  border: none;
-  width: 100%;
-  border-bottom: 1px solid;
-  padding-top: 20px;
+.modal__input {
+  display: flex;
+  height: 60px;
+  padding: 20px 24px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 30px;
+  border: 1px solid var(--Text-disabled, #cfcfcf);
+  background: #fff;
+  
+  
 }
 
 .modal__submit-button {

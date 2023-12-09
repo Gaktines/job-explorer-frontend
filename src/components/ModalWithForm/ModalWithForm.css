@@ -64,3 +64,8 @@
   font-weight: 700;
   line-height: 20px;
 }
+
+.modal__children{
+  display: flex;
+  flex-direction: column;
+}
