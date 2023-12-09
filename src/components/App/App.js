@@ -115,10 +115,11 @@ function App() {
           />
           <Switch>
             <Route exact path="/">
-              <Main onSelectCard={handleItemCard} loggedIn={loggedIn} />
+              <Main onSelectCard={handleItemCard} loggedIn={loggedIn} jobItems={jobItems} />
             </Route>
             <Route path="/profile">
               <Profile
+              jobItems={jobItems}
                 onSelectCard={handleItemCard}
                 handleActiveCreateModal={handleActiveCreateModal}
                 selectedCard={selectedCard}

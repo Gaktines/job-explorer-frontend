@@ -11,16 +11,17 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.5);
+
   align-items: center;
   flex-shrink: 0;
-  border-radius: 30px;
+
   border: 1px solid #cfcfcf;
   background: #fff;
   border-radius: 30px;
   border: 1px solid #cfcfcf;
   background: #fff;
   box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal__content {
@@ -58,8 +59,6 @@
   border-radius: 30px;
   border: 1px solid var(--Text-disabled, #cfcfcf);
   background: #fff;
-  
-  
 }
 
 .modal__submit-button {
