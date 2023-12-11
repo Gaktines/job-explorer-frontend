@@ -10,19 +10,19 @@ console.log(jobItems);
       {loggedIn ? (
         <>
           <div className="card__title-block">
-            <div className="card__title">{jobItems.company.name}</div>
+            <div className="card__title">{jobItems?.company.name}</div>
           </div>
         </>
       ) : (
         <>
           <div className="card__title-block">
-            <div className="card__title">{jobItems.company.name}</div>
+            <div className="card__title">{jobItems?.company.name}</div>
           </div>
         </>
       )}
-      <div className="card_job">{jobItems.jobName}</div>
+      <div className="card_job">{jobItems?.jobName}</div>
       <div className="card__job-pubDate">{Date}</div>
-      <a href={jobItems.link} onClick={onSelectCard}>
+      <a href={jobItems?.link} onClick={onSelectCard}>
         Job Link
       </a>
     </div>
