@@ -4,17 +4,20 @@ import JobCard from "../JobCard/JobCard";
 
 function Main({ onSelectCard, jobItems, setSelectedCard, loggedIn }) {
   console.log(jobItems);
-  const sortedCards = JobItems?.filter((item) => {
-    return item.publication_date === Date;
+  const current = new Date();
+  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+  const sortedCards = jobItems?.filter((item) => {
+    return item.jobPostingDate === date;
   });
 
 
   return (
     <main className="main">
       <section className="card__section">
-        Today is {Date}
+        Today is {date}
         <div className="card__items">
         {sortedCards.map((x) => (
+          console.log(x),
             <JobCard
               item={x}
               
