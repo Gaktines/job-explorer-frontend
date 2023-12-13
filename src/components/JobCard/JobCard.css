@@ -7,8 +7,6 @@
   text-align: center;
   justify-content: center;
   position: absolute;
-  display: flex;
-  flex-direction: row;
   top: 20px;
 }
 .card__title {
@@ -33,6 +31,10 @@
   justify-content: center;
   display: flex;
   position: relative;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: solid 1pt black;
+  border-radius: 25px;
 }
 
 .card__job-pubDate {

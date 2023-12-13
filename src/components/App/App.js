@@ -107,6 +107,7 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <AppContext.Provider value={appContextValue}>
         <div>
+          
           <Header
             onClick={handleActiveCreateModal}
             onClickLogin={handleLogInModal}
@@ -134,7 +135,7 @@ function App() {
             </Route>
           </Switch>
           <Footer />
-
+          
           {activeModal === "signup" && (
             <RegisterModal
               handleCloseModal={handleCloseModal}

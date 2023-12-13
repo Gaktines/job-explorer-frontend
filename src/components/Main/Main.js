@@ -6,9 +6,13 @@ function Main({ onSelectCard, jobItems, setSelectedCard, loggedIn }) {
   console.log(jobItems);
   const current = new Date();
   const date = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
-  const sortedCards = jobItems?.filter((item) => {
-    return item;
-  });
+
+const sortedCards = jobItems?.sort((a, b) => {
+   return a.jobPostingDate - b.jobPostingDate
+  
+});
+   
+
 
 
   return (
@@ -19,8 +23,8 @@ function Main({ onSelectCard, jobItems, setSelectedCard, loggedIn }) {
         {sortedCards.map((x) => (
           
             <JobCard
-              item={x}
             
+            item={x}
               onSelectCard={onSelectCard}
               onClick={() => {
                 setSelectedCard(x);
