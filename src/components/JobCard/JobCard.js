@@ -6,6 +6,7 @@ const JobCard = ({ onSelectCard, loggedIn, item }) => {
   //const currentUser = useContext(CurrentUserContext);
 console.log(item);
   return (
+    <div className="card__block">
     <div className="card">
       {loggedIn ? (
         <>
@@ -25,6 +26,7 @@ console.log(item);
       <a href={item?.jobLink} onClick={onSelectCard}>
         Job Link
       </a>
+    </div>
     </div>
   );
 };
