@@ -2,7 +2,7 @@ import "./Header.css";
 import JobSeekerLogo from "../../images/JobSeekerLogo.png";
 import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { useContext } from "react";
+import {  useContext } from "react";
 
 const Header = ({ onClick, loggedIn, onClickSignup, onClickLogin }) => {
   const currentDate = new Date().toLocaleString("default", {
@@ -12,11 +12,13 @@ const Header = ({ onClick, loggedIn, onClickSignup, onClickLogin }) => {
   const currentUser = useContext(CurrentUserContext);
   const avatar = currentUser ? currentUser.avatar : undefined;
   const showAvatar = avatar !== "" ? true : false;
-
+  
   const name = currentUser ? currentUser.name : "";
 
+  
+
   return (
-    <header className="header">
+    <header className="header__desktop">
       <div className="header__logo">
         <Link to="/">
           <img src={JobSeekerLogo} alt="logo" />
@@ -44,19 +46,23 @@ const Header = ({ onClick, loggedIn, onClickSignup, onClickLogin }) => {
           <>
             {" "}
             <button
-              className="header__nav_button"
+              className="header__nav_button-signup"
               type="text"
               onClick={onClickSignup}
             >
               Sign Up
             </button>
             <button
-              className="header__nav_button"
+              className="header__nav_button-signin"
               type="text"
               onClick={onClickLogin}
             >
               Sign In
             </button>
+            <button
+            className="header__burger-menu"
+            type="button"
+            ></button>
           </>
         )}
       </div>

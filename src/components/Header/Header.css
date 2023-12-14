@@ -3,7 +3,7 @@
   src: "../fonts/CabinetGrotesk-Regular.woff";
 }
 
-.header {
+.header__desktop {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,7 +34,17 @@
   color: black;
 }
 
-.header__nav_button {
+.header__nav_button-signup {
+  display: inline-flex;
+  padding: 18px 32px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 100px;
+  border: 2px solid var(--Active, #2f71e5);
+  background: var(--Active-overlay, #fff);
+}
+
+.header__nav_button-signin {
   display: inline-flex;
   padding: 18px 32px;
   align-items: flex-start;
@@ -71,4 +81,38 @@
   color: #000000;
   margin-top: 60px;
   margin-left: 900px;
+}
+
+.header__burger-menu {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .header__home-link {
+    display: none;
+  }
+
+  .header__about-link {
+    display: none;
+  }
+
+  .header__nav_button-signin {
+    display: none;
+  }
+
+  .header__nav_button-signup {
+    border: none;
+  }
+
+  .header__burger-menu {
+    display: flex;
+    background-image: url("../../images/mobileHeaderMenu.svg");
+    width: 44px;
+    height: 44px;
+  }
+
+  .header__logo {
+    width: 80px;
+    height: 40px;
+  }
 }
