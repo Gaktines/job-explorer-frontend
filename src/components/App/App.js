@@ -24,6 +24,7 @@ function App() {
   const appContextValue = { state: { loggedIn, userData } };
   const history = useHistory();
   const [isLoading, setIsLoading] = React.useState(false);
+  const [screenLoading, setScreenLoading] = useState(false);
 
   const handleItemCard = (card) => {
     setActiveModal("preview");
@@ -103,7 +104,16 @@ function App() {
       });
   }, [loggedIn]);
 
+  useEffect(() => {
+    setScreenLoading(true);
+    setTimeout(() => {
+      setScreenLoading(false);
+    }, 1000);
+  }, []);
+
   return (
+    <>
+    {screenLoading ? (<Preloader/>) : (
     <CurrentUserContext.Provider value={currentUser}>
       <AppContext.Provider value={appContextValue}>
         <div>
@@ -164,6 +174,8 @@ function App() {
         </div>
       </AppContext.Provider>
     </CurrentUserContext.Provider>
+    )}
+    </>
   );
 }
 
