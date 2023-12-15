@@ -17,7 +17,7 @@ export const baseUrl =
 //};
 
 // signin
-export const signin = () => {
+export const signin = (username, password) => {
   const username = document.getElementById("usernameInput").value;
   const password = document.getElementById("passwordInput").value;
   const isAuthenticated = username === "George" && password === "Bob22";
@@ -36,7 +36,7 @@ export const signin = () => {
 };
 
 // register
-export const register = () => {
+export const register = (username, email, password) => {
   const newUser = {
     email: "gaktines@gmail.com",
     password: "Bob22",

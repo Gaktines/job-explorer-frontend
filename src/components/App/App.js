@@ -58,8 +58,8 @@ function App() {
     history.push("/");
   };
 
-  const handleRegistration = (email, password, name, avatar) => {
-    register(email, password, name, avatar);
+  const handleRegistration = (email, password, username) => {
+    register(email, password, username);
     setLoggedIn(true);
     setCurrentUser();
     handleCloseModal();
