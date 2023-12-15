@@ -13,6 +13,7 @@ import LoginModal from "../../components/LoginModal/LoginModal";
 import { AppContext } from "../../contexts/AppContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
+import { signin, register } from "../../utils/auth";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -55,6 +56,49 @@ function App() {
   const handleLogout = () => {
     setLoggedIn(false);
     history.push("/");
+  };
+
+  const handleRegistration = (email, password, name, avatar) => {
+    register(email, password, name, avatar)
+      .then((res) => {
+        console.log(res);
+        setLoggedIn(true);
+        setCurrentUser(res.data);
+        handleCloseModal();
+
+        history.push("/profile");
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => setLoggedIn(false));
+  };
+
+  const handleLogin = (email, password) => {
+    signin(email, password)
+      .then((response) => {
+        return response;
+      })
+
+     /*  .then((data) => {
+        if (data.token) {
+          localStorage.setItem("jwt", data.token);
+
+         checkToken(data.token)
+            .then((res) => {
+              setLoggedIn(true);
+              setCurrentUser(res.data);
+              handleCloseModal();
+
+              history.push("/profile");
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        } else {
+          return;
+        }
+      });*/
   };
 
   const handleUpdate = (data) => {
@@ -113,68 +157,74 @@ function App() {
 
   return (
     <>
-    {screenLoading ? (<Preloader/>) : (
-    <CurrentUserContext.Provider value={currentUser}>
-      <AppContext.Provider value={appContextValue}>
-        <div>
-          
-          <Header
-            onClick={handleActiveCreateModal}
-            onClickLogin={handleLogInModal}
-            onClickSignup={handleSignupModal}
-            loggedIn={loggedIn}
-          />
-          <Switch>
-            <Route exact path="/">
-              <Main onSelectCard={handleItemCard} loggedIn={loggedIn} jobItems={jobItems} />
-            </Route>
-            <Route path="/profile">
-              <Profile
-              jobItems={jobItems}
-                onSelectCard={handleItemCard}
-                handleActiveCreateModal={handleActiveCreateModal}
-                selectedCard={selectedCard}
-                handleEditModal={handleEditModal}
-                handleLogout={handleLogout}
+      {screenLoading ? (
+        <Preloader />
+      ) : (
+        <CurrentUserContext.Provider value={currentUser}>
+          <AppContext.Provider value={appContextValue}>
+            <div>
+              <Header
+                onClick={handleActiveCreateModal}
+                onClickLogin={handleLogInModal}
+                onClickSignup={handleSignupModal}
                 loggedIn={loggedIn}
               />
-            </Route>
-            <Route path="/about">
-              <About 
-              />
-            </Route>
-          </Switch>
-          <Footer />
-          
-          {activeModal === "signup" && (
-            <RegisterModal
-              handleCloseModal={handleCloseModal}
-              isOpen={activeModal === "create"}
-              setActiveModal={setActiveModal}
-            />
-          )}
-          {activeModal === "login" && (
-            <LoginModal
-              handleCloseModal={handleCloseModal}
-              isOpen={activeModal === "login"}
-              onClickLogin={handleLogInModal}
-              setActiveModal={setActiveModal}
-            />
-          )}
-          {activeModal === "update" && (
-            <EditProfileModal
-              handleCloseModal={handleCloseModal}
-              isOpen={activeModal === "update"}
-              onSubmit={handleUpdate}
-              handleEditModal={handleEditModal}
-              setActiveModal={setActiveModal}
-              currentUser={currentUser}
-            />
-          )}
-        </div>
-      </AppContext.Provider>
-    </CurrentUserContext.Provider>
-    )}
+              <Switch>
+                <Route exact path="/">
+                  <Main
+                    onSelectCard={handleItemCard}
+                    loggedIn={loggedIn}
+                    jobItems={jobItems}
+                    handleRegistration={handleRegistration}
+                    handleLogin={handleLogin}
+                  />
+                </Route>
+                <Route path="/profile">
+                  <Profile
+                    jobItems={jobItems}
+                    onSelectCard={handleItemCard}
+                    handleActiveCreateModal={handleActiveCreateModal}
+                    selectedCard={selectedCard}
+                    handleEditModal={handleEditModal}
+                    handleLogout={handleLogout}
+                    loggedIn={loggedIn}
+                  />
+                </Route>
+                <Route path="/about">
+                  <About />
+                </Route>
+              </Switch>
+              <Footer />
+
+              {activeModal === "signup" && (
+                <RegisterModal
+                  handleCloseModal={handleCloseModal}
+                  isOpen={activeModal === "create"}
+                  setActiveModal={setActiveModal}
+                />
+              )}
+              {activeModal === "login" && (
+                <LoginModal
+                  handleCloseModal={handleCloseModal}
+                  isOpen={activeModal === "login"}
+                  onClickLogin={handleLogInModal}
+                  setActiveModal={setActiveModal}
+                />
+              )}
+              {activeModal === "update" && (
+                <EditProfileModal
+                  handleCloseModal={handleCloseModal}
+                  isOpen={activeModal === "update"}
+                  onSubmit={handleUpdate}
+                  handleEditModal={handleEditModal}
+                  setActiveModal={setActiveModal}
+                  currentUser={currentUser}
+                />
+              )}
+            </div>
+          </AppContext.Provider>
+        </CurrentUserContext.Provider>
+      )}
     </>
   );
 }
