@@ -61,37 +61,16 @@ function App() {
   const handleRegistration = (email, password, name, avatar) => {
     register(email, password, name, avatar);
     setLoggedIn(true);
-    setCurrentUser(res.data);
+    setCurrentUser();
     handleCloseModal();
 
     history.push("/profile");
   };
 
   const handleLogin = (email, password) => {
-    signin(email, password).then((response) => {
-      return response;
-    });
+    signin(email, password)
+    };
 
-    /*  .then((data) => {
-        if (data.token) {
-          localStorage.setItem("jwt", data.token);
-
-         checkToken(data.token)
-            .then((res) => {
-              setLoggedIn(true);
-              setCurrentUser(res.data);
-              handleCloseModal();
-
-              history.push("/profile");
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-        } else {
-          return;
-        }
-      });*/
-  };
 
   const handleUpdate = (data) => {
     setIsLoading(true);

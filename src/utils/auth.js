@@ -1,8 +1,9 @@
 import { checkResponse } from "./Api";
 
-export const baseUrl = process.env.NODE_ENV === 'production' 
-? 'https://api.wtwr.ix.tc'
-: 'http://localhost:3001';
+export const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.wtwr.ix.tc"
+    : "http://localhost:3001";
 
 // signup
 //export const signup = ({ name, avatar, email, password }) => {
@@ -16,8 +17,22 @@ export const baseUrl = process.env.NODE_ENV === 'production'
 //};
 
 // signin
-export const signin = ({ email, password }) => {
-  const 
+export const signin = () => {
+  const username = document.getElementById("usernameInput").value;
+  const password = document.getElementById("passwordInput").value;
+  const isAuthenticated = username === "George" && password === "Bob22";
+
+  setTimeout(() => {
+    if (isAuthenticated) {
+      const loggedInUser = {
+        username: "George",
+        email: "gaktines@gmail.com",
+      };
+      console.log("User Logged In:", loggedInUser);
+    } else {
+      console.log("Authentication Failed");
+    }
+  }, 1000);
 };
 
 // register
@@ -26,7 +41,6 @@ export const register = () => {
     email: "gaktines@gmail.com",
     password: "Bob22",
     username: "George",
-
   };
   setTimeout(() => {
     console.log("User Created:", newUser);

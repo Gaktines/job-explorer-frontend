@@ -11,7 +11,7 @@ const RegisterModal = ({
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [username, setuserame] = useState("");
   const [avatar, setUrl] = useState("");
 
   const handleEmailChange = (e) => {
@@ -21,7 +21,7 @@ const RegisterModal = ({
     setPassword(e.target.value);
   };
   const handleNameChange = (e) => {
-    setName(e.target.value);
+    setuserame(e.target.value);
   };
   const handleUrlChange = (e) => {
     setUrl(e.target.value);
@@ -29,7 +29,7 @@ const RegisterModal = ({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    handleRegistration(email, password, name, avatar);
+    handleRegistration(email, password, username);
   };
   const onClickLogin = () => {
     setActiveModal("login");
@@ -49,7 +49,7 @@ const RegisterModal = ({
         placeholder="Username"
         minLength="1"
         maxLength="30"
-        value={name}
+        value={username}
         onChange={handleNameChange}
       ></input>
 
