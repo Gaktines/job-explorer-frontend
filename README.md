@@ -1,3 +1,5 @@
+This is the front end for a web app that gets you the current job openings for the current day.  You can view it here  .  It was built with React.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
