@@ -17,35 +17,20 @@ export const baseUrl = process.env.NODE_ENV === 'production'
 
 // signin
 export const signin = ({ email, password }) => {
-  return fetch(`${baseUrl}/signin`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email, password }),
-  }).then((res) => checkResponse(res));
+  const 
 };
 
 // register
-export const register = (email, password, name, avatar, token) => {
-  return fetch(`${baseUrl}/signup`, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email, password, name, avatar }, token),
-  }).then((response) => {
-    return checkResponse(response).then((data) => {
-      console.log(data);
-      console.log(response);
-      if (response.status === 201) {
-        return data.data;
-      } else {
-        throw new Error(data.message);
-      }
-    });
-  });
+export const register = () => {
+  const newUser = {
+    email: "gaktines@gmail.com",
+    password: "Bob22",
+    username: "George",
+
+  };
+  setTimeout(() => {
+    console.log("User Created:", newUser);
+  }, 1000);
 };
 
 // check token
