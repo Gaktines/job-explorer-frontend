@@ -17,7 +17,7 @@ export const baseUrl =
 //};
 
 // signin
-export const signin = (username, password) => {
+export const signin = () => {
   const username = document.getElementById("usernameInput").value;
   const password = document.getElementById("passwordInput").value;
   const isAuthenticated = username === "George" && password === "Bob22";
