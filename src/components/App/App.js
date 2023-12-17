@@ -172,6 +172,7 @@ function App() {
                   handleCloseModal={handleCloseModal}
                   isOpen={activeModal === "create"}
                   setActiveModal={setActiveModal}
+                  handleRegistration={handleRegistration}
                 />
               )}
               {activeModal === "login" && (
