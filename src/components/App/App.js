@@ -104,7 +104,6 @@ function App() {
   useEffect(() => {
     fetchJobs()
       .then((data) => {
-        console.log(data);
         const apiData = data.results.map((job) => ({
           companyName: job.company.name,
           jobName: job.name,
@@ -112,7 +111,6 @@ function App() {
           jobPostingDate: job.publication_date,
         }));
         setJobItems(apiData);
-        console.log(apiData);
       })
       .catch((e) => {
         console.error(e);

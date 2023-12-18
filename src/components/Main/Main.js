@@ -3,7 +3,6 @@ import React from "react";
 import JobCard from "../JobCard/JobCard";
 
 function Main({ onSelectCard, jobItems, setSelectedCard, loggedIn }) {
-  console.log(jobItems);
   const current = new Date();
   const date = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
 

@@ -4,7 +4,6 @@ import "./JobCard.css";
 
 const JobCard = ({ onSelectCard, loggedIn, item }) => {
   //const currentUser = useContext(CurrentUserContext);
-console.log(item);
   return (
     <div className="card__block">
     <div className="card">
