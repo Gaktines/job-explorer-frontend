@@ -22,7 +22,7 @@ const JobCard = ({ onSelectCard, loggedIn, item }) => {
       )}
       <div className="card_job">{item?.jobName}</div>
       <div className="card__job-pubdate">{Date}</div>
-      <a href={item?.jobLink} onClick={onSelectCard}>
+      <a href={item?.jobLink} target="_blank" rel="noreferrer" onClick={onSelectCard}>
         Job Link
       </a>
     </div>
