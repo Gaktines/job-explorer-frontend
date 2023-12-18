@@ -5,7 +5,7 @@ import "./JobCard.css";
 const JobCard = ({ onSelectCard, loggedIn, item }) => {
   //const currentUser = useContext(CurrentUserContext);
   return (
-    <div className="card__block">
+    <section className="card__block">
     <div className="card">
       {loggedIn ? (
         <>
@@ -21,12 +21,12 @@ const JobCard = ({ onSelectCard, loggedIn, item }) => {
         </>
       )}
       <div className="card_job">{item?.jobName}</div>
-      <div className="card__job-pubDate">{Date}</div>
+      <div className="card__job-pubdate">{Date}</div>
       <a href={item?.jobLink} onClick={onSelectCard}>
         Job Link
       </a>
     </div>
-    </div>
+    </section>
   );
 };
 

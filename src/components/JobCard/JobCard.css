@@ -43,10 +43,10 @@
   border: solid 1pt black;
   border-radius: 25px;
   height: 200px;
-  width: 300px;
+  width: 250px;
 }
 
-.card__job-pubDate {
+.card__job-pubdate {
   color: #000;
   font-family: Inter;
   font-size: 32px;

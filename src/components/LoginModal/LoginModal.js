@@ -9,11 +9,11 @@ const LoginModal = ({
   isLoading,
   handleCloseModal,
 }) => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
   };
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
@@ -21,7 +21,7 @@ const LoginModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogin({ email, password });
+    handleLogin({ username, password });
   };
 
   const onClickSignup = () => {
@@ -37,17 +37,17 @@ const LoginModal = ({
       <h2>Log in</h2>
 
       <input
-        className="modal__input"
-        type="email"
-        name="email"
-        placeholder="Email"
+        className="modal__username-input"
+        type="text"
+        name="username"
+        placeholder="Username"
         required
-        value={email}
-        onChange={handleEmailChange}
+        value={username}
+        onChange={handleUsernameChange}
       ></input>
 
       <input
-        className="modal__input"
+        className="modal__password-input"
         type="text"
         name="password"
         placeholder="Password"

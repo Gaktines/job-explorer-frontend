@@ -5,10 +5,6 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import {  useContext } from "react";
 
 const Header = ({ onClick, loggedIn, onClickSignup, onClickLogin }) => {
-  const currentDate = new Date().toLocaleString("default", {
-    month: "short",
-    date: "numeric",
-  });
   const currentUser = useContext(CurrentUserContext);
   const avatar = currentUser ? currentUser.avatar : undefined;
   const showAvatar = avatar !== "" ? true : false;
@@ -18,7 +14,7 @@ const Header = ({ onClick, loggedIn, onClickSignup, onClickLogin }) => {
   
 
   return (
-    <header className="header__desktop">
+    <header className="header">
       <div className="header__logo">
         <Link to="/">
           <img src={JobSeekerLogo} alt="logo" />
@@ -46,14 +42,14 @@ const Header = ({ onClick, loggedIn, onClickSignup, onClickLogin }) => {
           <>
             {" "}
             <button
-              className="header__nav_button-signup"
+              className="header__signup-button"
               type="text"
               onClick={onClickSignup}
             >
               Sign Up
             </button>
             <button
-              className="header__nav_button-signin"
+              className="header__signin-button"
               type="text"
               onClick={onClickLogin}
             >
