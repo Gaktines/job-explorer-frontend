@@ -3,6 +3,12 @@
   src: "../fonts/CabinetGrotesk-Black.woff";
 }
 
+.card__block {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
 .card__title-block {
   text-align: center;
   justify-content: center;
