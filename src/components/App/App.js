@@ -133,7 +133,7 @@ function App() {
       ) : (
         <CurrentUserContext.Provider value={currentUser}>
           <AppContext.Provider value={appContextValue}>
-            <div>
+            <div className="app__page">
               <Header
                 onClick={handleActiveCreateModal}
                 onClickLogin={handleLogInModal}
