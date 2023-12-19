@@ -18,15 +18,15 @@
 
 // signin
 export const signin = () => {
-  const username = document.getElementById("modal__username-input").value;
-  const password = document.getElementById("modal__password-input").value;
+  const username = document.getElementById("usernameInput").value;
+  const password = document.getElementById("passwordInput").value;
   const isAuthenticated = username === "George" && password === "Bob22";
 
   setTimeout(() => {
     if (isAuthenticated) {
       const loggedInUser = {
         username: "George",
-        email: "gaktines@gmail.com",
+        password: "Bob22",
       };
       console.log("User Logged In:", loggedInUser);
     } else {

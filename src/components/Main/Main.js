@@ -16,9 +16,9 @@ const sortedCards = jobItems?.sort((a, b) =>
 
   return (
     <main className="main">
-      <section className="card__section">
+      <section className="main__card-section">
         Today is {date}
-        <div className="card__items">
+        <div className="main__cards">
         {sortedCards.map((x) => (
           
             <JobCard

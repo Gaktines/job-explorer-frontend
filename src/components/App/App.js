@@ -68,7 +68,9 @@ function App() {
   };
 
   const handleLogin = (email, password) => {
-    signin(email, password)
+    signin(email, password);
+    handleCloseModal();
+    history.push("/profile");
     };
 
 
@@ -179,6 +181,7 @@ function App() {
                   isOpen={activeModal === "login"}
                   onClickLogin={handleLogInModal}
                   setActiveModal={setActiveModal}
+                  handleLogin={handleLogin}
                 />
               )}
               {activeModal === "update" && (

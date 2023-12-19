@@ -3,6 +3,7 @@ import "./Profile.css";
 import SideBar from "../SideBar/SideBar";
 
 
+
 const Profile = ({
   handleEditModal,
   handleLogout,
