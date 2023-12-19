@@ -12,17 +12,17 @@ const JobCard = ({ onSelectCard, loggedIn, item }) => {
         {loggedIn ? (
           <>
             <div className="card__title-block">
-              <div className="card__title">{item?.companyName}</div>
+              <p className="card__title">{item?.companyName}</p>
             </div>
           </>
         ) : (
           <>
             <div className="card__title-block">
-              <div className="card__title">{item?.companyName}</div>
+              <p className="card__title">{item?.companyName}</p>
             </div>
           </>
         )}
-        <div className="card_job">{item?.jobName}</div>
+        <p className="card__job-name">{item?.jobName}</p>
         <div className="card__job-pubdate">{date}</div>
         <a
           href={item?.jobLink}

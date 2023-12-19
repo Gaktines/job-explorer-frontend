@@ -7,7 +7,7 @@ import Preloader from "../Preloader/Preloader";
 import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import Profile from "../Profile/Profile";
-import { fetchJobs, signin, register } from "../API";
+import { fetchJobs, signin, register } from "../../utils/Api";
 import RegisterModal from "../../components/RegisterModal/RegisterModal";
 import LoginModal from "../../components/LoginModal/LoginModal";
 import { AppContext } from "../../contexts/AppContext";
@@ -64,8 +64,23 @@ function App() {
   const handleLogin = (email, password) => {
     signin(email, password);
     handleCloseModal();
-    history.push("/profile");
   };
+  
+ useEffect(() => {
+  if (!activeModal) return; // stop the effect not to add the listener if there is no active modal
+
+
+  const closeModalOnRemoteClick = (e) => {
+    if (
+      e.target === e.currentTarget ||
+      e.target.classList.contains("modal__close")
+    ) {
+      handleCloseModal();
+
+    }
+  };
+  document.addEventListener("click", closeModalOnRemoteClick);
+});
 
   useEffect(() => {
     if (!activeModal) return; // stop the effect not to add the listener if there is no active modal

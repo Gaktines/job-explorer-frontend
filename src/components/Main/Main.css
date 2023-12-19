@@ -5,9 +5,14 @@
   gap: 10px 10px;
 }
 
+.main__date {
+  margin-left: 20px;
+}
+
 .main {
   flex-grow: 1;
 }
+
 @media only screen and (min-width: 300px) and (max-width: 600px) {
   .main__cards {
     display: flex;

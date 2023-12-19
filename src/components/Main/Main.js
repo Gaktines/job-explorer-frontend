@@ -15,7 +15,7 @@ function Main({ onSelectCard, jobItems, setSelectedCard, loggedIn }) {
   return (
     <main className="main">
       <section className="main__card-section">
-        Today is {date}
+        <p className="main__date">Today is {date}</p>
         <div className="main__cards">
           {sortedCards.map((x) => (
             <JobCard

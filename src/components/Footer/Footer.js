@@ -3,8 +3,8 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer__name">Developed by George Aktines</div>
-      <div className="footer__date">2023</div>
+      <p className="footer__name">Developed by George Aktines</p>
+      <p className="footer__date">2023</p>
     </footer>
   );
 };

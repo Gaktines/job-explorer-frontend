@@ -17,21 +17,13 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  margin-right: 10px;
 }
 
 .header__avatar-logo {
   display: flex;
   align-items: center;
   gap: 20px;
-}
-
-.header__add-button {
-  border: none;
-  background-color: white;
-}
-
-.header__date {
-  color: black;
 }
 
 .header__signup-button {
@@ -52,6 +44,7 @@
   border-radius: 100px;
   border: 2px solid var(--Active, #2f71e5);
   background: var(--Active-overlay, #fff);
+  margin-right: 20px;
 }
 
 .header__avatar {
