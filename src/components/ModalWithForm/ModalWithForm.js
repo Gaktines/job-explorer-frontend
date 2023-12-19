@@ -8,9 +8,6 @@ const ModalWithForm = ({
   onSubmit,
   buttonText,
 }) => {
-
-  
-
   return (
     <div className={`modal modal_type_${name}`}>
       <div className="modal__contents">

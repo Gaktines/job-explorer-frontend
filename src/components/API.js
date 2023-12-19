@@ -1,20 +1,27 @@
-// import { checkResponse } from "./Api";
+const baseUrl = "https://www.themuse.com/api/public";
 
-/*export const baseUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://api.wtwr.ix.tc"
-    : "http://localhost:3001";
-*/
-// signup
-//export const signup = ({ name, avatar, email, password }) => {
-// fetch(`${baseUrl}/signup`, {
-//   method: "POST",
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-//   body: JSON.stringify({ name, avatar, email, password }),
-// });
-//};
+export const checkResponse = (res) => {
+  return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+};
+
+export const fetchJobs = () => {
+  const getJobs = fetch(`${baseUrl}/jobs?page=13`, {
+    method: "GET",
+  }).then((res) => checkResponse(res));
+  return getJobs;
+};
+
+export function editUserProfile({ name, avatar }) {
+  const token = localStorage.getItem("jwt");
+  return fetch(`${baseUrl}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, avatar }),
+  }).then((res) => checkResponse(res));
+}
 
 // signin
 export const signin = () => {
@@ -46,14 +53,3 @@ export const register = (username, email, password) => {
     console.log("User Created:", newUser);
   }, 1000);
 };
-
-// check token
-/*export const checkToken = (token) => {
-  return fetch(`${baseUrl}/users/me`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
-    },
-  }).then((res) => checkResponse(res));
-}:*/

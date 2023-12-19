@@ -7,13 +7,12 @@ import Preloader from "../Preloader/Preloader";
 import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import Profile from "../Profile/Profile";
-import { fetchJobs, editUserProfile } from "../../utils/Api";
+import { fetchJobs, signin, register } from "../API";
 import RegisterModal from "../../components/RegisterModal/RegisterModal";
 import LoginModal from "../../components/LoginModal/LoginModal";
 import { AppContext } from "../../contexts/AppContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import EditProfileModal from "../EditProfileModal/EditProfileModal";
-import { signin, register } from "../../utils/auth";
+
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -24,7 +23,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const appContextValue = { state: { loggedIn, userData } };
   const history = useHistory();
-  const [isLoading, setIsLoading] = React.useState(false);
   const [screenLoading, setScreenLoading] = useState(false);
 
   const handleItemCard = (card) => {
@@ -43,10 +41,6 @@ function App() {
 
   const handleSignupModal = () => {
     setActiveModal("signup");
-  };
-
-  const handleEditModal = () => {
-    setActiveModal("update");
   };
 
   const handleLogInModal = () => {
@@ -71,18 +65,6 @@ function App() {
     signin(email, password);
     handleCloseModal();
     history.push("/profile");
-    };
-
-
-  const handleUpdate = (data) => {
-    setIsLoading(true);
-    editUserProfile(data)
-      .then((res) => {
-        setCurrentUser(res.data);
-        handleCloseModal();
-      })
-      .catch((err) => console.error(err))
-      .finally(() => setIsLoading(false));
   };
 
   useEffect(() => {
@@ -156,7 +138,6 @@ function App() {
                     onSelectCard={handleItemCard}
                     handleActiveCreateModal={handleActiveCreateModal}
                     selectedCard={selectedCard}
-                    handleEditModal={handleEditModal}
                     handleLogout={handleLogout}
                     loggedIn={loggedIn}
                   />
@@ -182,16 +163,6 @@ function App() {
                   onClickLogin={handleLogInModal}
                   setActiveModal={setActiveModal}
                   handleLogin={handleLogin}
-                />
-              )}
-              {activeModal === "update" && (
-                <EditProfileModal
-                  handleCloseModal={handleCloseModal}
-                  isOpen={activeModal === "update"}
-                  onSubmit={handleUpdate}
-                  handleEditModal={handleEditModal}
-                  setActiveModal={setActiveModal}
-                  currentUser={currentUser}
                 />
               )}
             </div>

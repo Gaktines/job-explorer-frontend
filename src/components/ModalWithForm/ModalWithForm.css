@@ -19,7 +19,7 @@
   background-color: white;
   max-width: 496px;
   border-radius: 20px;
- width: 100%;
+  width: 100%;
   padding: 14px 16px;
   position: relative;
 }
@@ -58,14 +58,14 @@
 
 .modal__title {
   color: #000;
-  font-family: Cabinet Grotesk;
+  font-family: "Cabinet Grotesk", Inter;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: 20px;
 }
 
-.modal__children{
+.modal__children {
   display: flex;
   flex-direction: column;
 }

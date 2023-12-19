@@ -1,4 +1,4 @@
-This is the front end for a web app that gets you the current job openings for the current day.  You can view it here https://gaktines.github.io/job-explorer-frontend.  It was built with React.
+This is the front end for a web app that gets you the current job openings for the current day. You can view it here https://gaktines.github.io/job-explorer-frontend. It was built with React.
 
 # Getting Started with Create React App
 

@@ -37,7 +37,7 @@ const LoginModal = ({
       <h2>Log in</h2>
 
       <input
-      id="usernameInput"
+        id="usernameInput"
         className="modal__input"
         type="text"
         name="username"
@@ -48,7 +48,7 @@ const LoginModal = ({
       ></input>
 
       <input
-      id="passwordInput"
+        id="passwordInput"
         className="modal__input"
         type="text"
         name="password"

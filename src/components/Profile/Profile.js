@@ -2,17 +2,14 @@ import React from "react";
 import "./Profile.css";
 import SideBar from "../SideBar/SideBar";
 
-
-
-const Profile = ({
-  handleEditModal,
-  handleLogout,
-  onSubmit,
-}) => {
+const Profile = ({ handleEditModal, handleLogout, onSubmit }) => {
   return (
     <section className="profile">
-      <SideBar handleEditModal={handleEditModal} handleLogout={handleLogout} onSubmit={onSubmit}/>
-      
+      <SideBar
+        handleEditModal={handleEditModal}
+        handleLogout={handleLogout}
+        onSubmit={onSubmit}
+      />
     </section>
   );
 };

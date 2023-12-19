@@ -1,13 +1,15 @@
-import React/*, { useContext } */from "react";
+import React /*, { useContext } */ from "react";
 import "./About.css";
 
 const About = () => {
-    return (
+  return (
     <div className="about__body">
-        <p className="about__text">
-            The author of this page is George.  He is a farm boy from Texas who enjoys programming, dancing, hunting, and fishing.
-        </p>
+      <p className="about__text">
+        The author of this page is George. He is a farm boy from Texas who
+        enjoys programming, dancing, hunting, and fishing.
+      </p>
     </div>
-)};
+  );
+};
 
 export default About;
