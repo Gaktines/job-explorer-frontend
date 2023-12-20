@@ -2,7 +2,7 @@ import "./Header.css";
 import JobSeekerLogo from "../../images/JobSeekerLogo.png";
 import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 
 const Header = ({ loggedIn, onClickSignup, onClickLogin }) => {
@@ -60,12 +60,12 @@ const Header = ({ loggedIn, onClickSignup, onClickLogin }) => {
             >
               Sign In
             </button>
-            <button className="header__burger-menu" type="button"></button>
+            <button onClick={toggleHamburgerMenu} className="header__burger-menu" type="button"></button>
           </>
         )}
       </div>
     </header>
   );
 };
-
+}
 export default Header;
