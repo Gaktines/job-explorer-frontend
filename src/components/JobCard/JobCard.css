@@ -4,10 +4,17 @@
 }
 
 .card__block {
+  align-items: center;
+  justify-content: center;
   display: flex;
+  position: relative;
   flex-direction: column;
   flex-wrap: wrap;
-  align-items: center;
+  border: solid 1pt black;
+  border-radius: 25px;
+  height: 200px;
+  width: 250px;
+  overflow: hidden;
 }
 .card__title-block {
   text-align: center;
@@ -34,17 +41,10 @@
 }
 
 .card {
-  align-items: center;
-  justify-content: center;
   display: flex;
-  position: relative;
   flex-direction: column;
   flex-wrap: wrap;
-  border: solid 1pt black;
-  border-radius: 25px;
-  height: 200px;
-  width: 250px;
-  overflow: hidden;
+  align-items: center;
 }
 
 .card__job-pubdate {

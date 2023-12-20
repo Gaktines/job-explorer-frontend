@@ -43,7 +43,7 @@ export const signin = () => {
 };
 
 // register
-export const register = (username, email, password) => {
+export const register = () => {
   const newUser = {
     email: "gaktines@gmail.com",
     password: "Bob22",

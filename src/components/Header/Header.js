@@ -4,12 +4,19 @@ import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
 
+
 const Header = ({ loggedIn, onClickSignup, onClickLogin }) => {
+  
+
   const currentUser = useContext(CurrentUserContext);
   const avatar = currentUser ? currentUser.avatar : undefined;
   const showAvatar = avatar !== "" ? true : false;
-
+  
   const name = currentUser ? currentUser.name : "";
+  const [hambugerMenuIsOpen, setHambugerMenuIsOpen] = useState(false)
+
+  const toggleHamburgerMenu = () => {
+    setHambugerMenuIsOpen(!hambugerMenuIsOpen)
 
   return (
     <header className="header">
@@ -60,4 +67,5 @@ const Header = ({ loggedIn, onClickSignup, onClickLogin }) => {
     </header>
   );
 };
+
 export default Header;

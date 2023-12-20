@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Preloader.css"; // Import your CSS file
 
 const Preloader = () => {

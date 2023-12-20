@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegisterModal.css";
 
@@ -12,7 +12,7 @@ const RegisterModal = ({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setuserame] = useState("");
-  const [avatar, setUrl] = useState("");
+  
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -23,9 +23,7 @@ const RegisterModal = ({
   const handleNameChange = (e) => {
     setuserame(e.target.value);
   };
-  const handleUrlChange = (e) => {
-    setUrl(e.target.value);
-  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 

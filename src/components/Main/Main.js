@@ -1,5 +1,4 @@
 import "./Main.css";
-import React from "react";
 import JobCard from "../JobCard/JobCard";
 
 function Main({ onSelectCard, jobItems, setSelectedCard, loggedIn }) {
