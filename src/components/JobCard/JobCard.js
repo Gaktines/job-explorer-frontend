@@ -23,7 +23,7 @@ const JobCard = ({ onSelectCard, loggedIn, item }) => {
           </>
         )}
         <p className="card__job-name">{item?.jobName}</p>
-        <div className="card__job-pubdate">{date}</div>
+        <p className="card__job-pubdate">{date}</p>
         <a
           href={item?.jobLink}
           target="_blank"

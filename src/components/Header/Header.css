@@ -1,6 +1,6 @@
 @font-face {
   font-family: Cabinet Grotesk;
-  src: "../fonts/CabinetGrotesk-Regular.woff";
+  src: "../vendors/fonts/CabinetGrotesk-Regular.woff";
 }
 
 .header {
@@ -8,7 +8,7 @@
   justify-content: space-between;
   align-items: center;
   min-height: 60px;
-  font-family: Cabinet Grotesk;
+  font-family: "Cabinet Grotesk", Inter;
   font-style: regular;
   padding: 0 20px;
 }
@@ -80,7 +80,7 @@
   display: none;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .header__home-link {
     display: none;
   }

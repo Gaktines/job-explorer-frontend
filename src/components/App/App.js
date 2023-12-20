@@ -56,6 +56,7 @@ function App() {
     register(email, password, username);
     setLoggedIn(true);
     setCurrentUser();
+    setUserData();
     handleCloseModal();
 
     history.push("/profile");

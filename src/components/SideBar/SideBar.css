@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Cabinet Grotesk;
+  src: "../vendors/fonts/CabinetGrotesk-Black.woff";
+}
+
 .sideBar {
   display: flex;
   flex-direction: row;
@@ -13,7 +18,7 @@
 
 .sideBar__name {
   color: #000;
-  font-family: Cabinet Grotesk;
+  font-family: "Cabinet Grotesk", Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -25,7 +30,7 @@
   color: #000;
   border: none;
   background-color: white;
-  font-family: Cabinet Grotesk;
+  font-family: "Cabinet Grotesk", Inter;
   min-width: 135px;
   font-size: 20px;
   font-style: normal;
@@ -41,7 +46,7 @@
   color: #000;
   border: none;
   background-color: white;
-  font-family: Cabinet Grotesk;
+  font-family: "Cabinet Grotesk", Inter;
   min-width: 135px;
   font-size: 20px;
   font-style: normal;
@@ -64,7 +69,7 @@
 .avatar__placeholder {
   border-radius: 25%;
   background-color: white;
-  font-family: Cabinet Grotesk;
+  font-family: "Cabinet Grotesk", Inter;
 
 }
 
