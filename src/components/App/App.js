@@ -65,22 +65,6 @@ function App() {
     signin(email, password);
     handleCloseModal();
   };
-  
- useEffect(() => {
-  if (!activeModal) return; // stop the effect not to add the listener if there is no active modal
-
-
-  const closeModalOnRemoteClick = (e) => {
-    if (
-      e.target === e.currentTarget ||
-      e.target.classList.contains("modal__close")
-    ) {
-      handleCloseModal();
-
-    }
-  };
-  document.addEventListener("click", closeModalOnRemoteClick);
-});
 
   useEffect(() => {
     if (!activeModal) return; // stop the effect not to add the listener if there is no active modal
