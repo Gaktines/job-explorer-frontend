@@ -40,6 +40,7 @@ const RegisterModal = ({
       onSubmit={handleSubmit}
       buttonText={isLoading ? "Saving..." : "Sign up"}
       onClose={handleCloseModal}
+      handleCloseModal={handleCloseModal}
     >
       <h2 className="modal_header">Sign up</h2>
       <input

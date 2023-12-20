@@ -33,6 +33,7 @@ const LoginModal = ({
       onSubmit={handleSubmit}
       buttonText={isLoading ? "Logging In..." : "Sign in"}
       onClose={handleCloseModal}
+      handleCloseModal={handleCloseModal}
     >
       <h2>Log in</h2>
 
