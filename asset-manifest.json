@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/job-explorer-frontend/static/css/main.ef590878.css",
-    "main.js": "/job-explorer-frontend/static/js/main.6ecc71d6.js",
+    "main.css": "/job-explorer-frontend/static/css/main.c8d0eb2d.css",
+    "main.js": "/job-explorer-frontend/static/js/main.be4c7cf4.js",
     "static/js/787.8800bddc.chunk.js": "/job-explorer-frontend/static/js/787.8800bddc.chunk.js",
     "static/media/State=Disabled.svg": "/job-explorer-frontend/static/media/State=Disabled.2175f48f563938165e19.svg",
     "index.html": "/job-explorer-frontend/index.html",
     "static/media/modalCloseImage.svg": "/job-explorer-frontend/static/media/modalCloseImage.34bff1eb1ed0331b4c52.svg",
     "static/media/mobileHeaderMenu.svg": "/job-explorer-frontend/static/media/mobileHeaderMenu.b0335c7095f94f1a9806.svg",
-    "main.ef590878.css.map": "/job-explorer-frontend/static/css/main.ef590878.css.map",
-    "main.6ecc71d6.js.map": "/job-explorer-frontend/static/js/main.6ecc71d6.js.map",
+    "main.c8d0eb2d.css.map": "/job-explorer-frontend/static/css/main.c8d0eb2d.css.map",
+    "main.be4c7cf4.js.map": "/job-explorer-frontend/static/js/main.be4c7cf4.js.map",
     "787.8800bddc.chunk.js.map": "/job-explorer-frontend/static/js/787.8800bddc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ef590878.css",
-    "static/js/main.6ecc71d6.js"
+    "static/css/main.c8d0eb2d.css",
+    "static/js/main.be4c7cf4.js"
   ]
 }
