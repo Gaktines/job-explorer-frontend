@@ -4,19 +4,17 @@ import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext, useState } from "react";
 
-
 const Header = ({ loggedIn, onClickSignup, onClickLogin }) => {
-  
-
   const currentUser = useContext(CurrentUserContext);
   const avatar = currentUser ? currentUser.avatar : undefined;
   const showAvatar = avatar !== "" ? true : false;
-  
+
   const name = currentUser ? currentUser.name : "";
-  const [hambugerMenuIsOpen, setHambugerMenuIsOpen] = useState(false)
+  const [hambugerMenuIsOpen, setHambugerMenuIsOpen] = useState(false);
 
   const toggleHamburgerMenu = () => {
-    setHambugerMenuIsOpen(!hambugerMenuIsOpen)
+    setHambugerMenuIsOpen(!hambugerMenuIsOpen);
+  };
 
   return (
     <header className="header">
@@ -60,12 +58,27 @@ const Header = ({ loggedIn, onClickSignup, onClickLogin }) => {
             >
               Sign In
             </button>
-            <button onClick={toggleHamburgerMenu} className="header__burger-menu" type="button"></button>
+            <button
+              onClick={toggleHamburgerMenu}
+              className="header__burger-menu"
+              type="button"
+            ></button>
+            <div
+              className={`header__nav_links ${
+                hambugerMenuIsOpen ? "header__nav_links_visible" : ""
+              }`}
+            >
+              <a className="header__nav-home" href="/">Home</a>
+              <a className="header__nav-about" href="/about">About</a>
+              <button className="header__nav-signin" type="text" onClick={onClickLogin}>
+                Sign In
+              </button>
+            </div>
           </>
         )}
       </div>
     </header>
   );
 };
-}
+
 export default Header;
