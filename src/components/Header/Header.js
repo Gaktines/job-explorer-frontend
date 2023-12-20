@@ -68,8 +68,8 @@ const Header = ({ loggedIn, onClickSignup, onClickLogin }) => {
                 hambugerMenuIsOpen ? "header__nav_links_visible" : ""
               }`}
             >
-              <a className="header__nav-home" href="/">Home</a>
-              <a className="header__nav-about" href="/about">About</a>
+              <Link className="header__nav-home" to="/">Home</Link>
+              <Link className="header__nav-about" to="/about">About</Link>
               <button className="header__nav-signin" type="text" onClick={onClickLogin}>
                 Sign In
               </button>
