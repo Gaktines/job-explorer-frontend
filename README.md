@@ -1,4 +1,8 @@
-This is the front end for a web app that gets you the  job openings for various companies. You can view it here https://gaktines.github.io/job-explorer-frontend. It was built with React.
+Job-Explorer (Frontend)
+
+This is the front end for a web app that gets you the job openings for various companies. I used React.js to build the functionality for the all of the components.
+
+You can view it here https://gaktines.github.io/job-explorer-frontend. It was built with React.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
